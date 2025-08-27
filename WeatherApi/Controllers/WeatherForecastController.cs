@@ -31,7 +31,9 @@ public class WeatherForecastController : ControllerBase
             .ToArray();
     }
 
+
     [HttpGet("summaries")]
     public IEnumerable<string> GetSummaries() => Summaries;
+
 }
 
