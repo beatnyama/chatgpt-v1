@@ -34,5 +34,8 @@ public class WeatherForecastController : ControllerBase
     [HttpGet("summaries")]
     [ResponseCache(Duration = 60, Location = ResponseCacheLocation.Any)]
     public IEnumerable<string> GetSummaries() => Summaries;
+
+
+
 }
 
