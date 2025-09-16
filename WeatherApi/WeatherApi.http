@@ -1,11 +1,27 @@
 @WeatherApi_HostAddress = http://localhost:5021
 
-GET {{WeatherApi_HostAddress}}/weatherforecast/
+### Create a shortened URL
+POST {{WeatherApi_HostAddress}}/api/urls
+Content-Type: application/json
+
+{
+  "url": "https://example.com/articles/building-a-url-shortener",
+  "expirationInMinutes": 60,
+  "outputType": "shortUrl"
+}
+
+### Create a QR code that points to the shortened URL
+POST {{WeatherApi_HostAddress}}/api/urls
+Content-Type: application/json
+
+{
+  "url": "https://example.com/articles/building-a-url-shortener",
+  "outputType": "qrCode"
+}
+
+### Retrieve metadata for an existing short URL
+GET {{WeatherApi_HostAddress}}/api/urls/{{shortCode}}
 Accept: application/json
 
-###
-
-GET {{WeatherApi_HostAddress}}/weatherforecast/summaries
-Accept: application/json
-
-###
+### Follow the shortened link
+GET {{WeatherApi_HostAddress}}/{{shortCode}}
